@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id "fr.brouillard.oss.gradle.jgitver" version "0.9.1"
+    id 'maven-publish'
+}
+
+jgitver {
+  nonQualifierBranches "master,main"
+}
+
+
+group = 'com.kanezi.github'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  // Use JUnit Jupiter for testing.
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+  implementation 'com.google.guava:guava:29.0-jre'
+}
+
+java {
+	withSourcesJar()
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = "https://maven.pkg.github.com/aurelo/uuid-generator"
+      credentials {
+        username = System.getenv("GITHUB_ACTOR")
+        password = System.getenv("GITHUB_TOKEN")
+      }
+    }
+  }
+
+
+    publications {
+        maven(MavenPublication) {
+		       from components.java
+        }
+    }
+}
+
