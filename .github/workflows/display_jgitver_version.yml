@@ -1,0 +1,23 @@
+name: Display jgitver version
+
+on: [workflow_dispatch]
+
+
+jobs:
+  
+  display_version:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: display version
+        run: gradle version
+        
+      - name: job output
+        run: |
+          echo "## JGitVer project version:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+          gradle version >> $GITHUB_STEP_SUMMARY
+
+    
+    
+  
