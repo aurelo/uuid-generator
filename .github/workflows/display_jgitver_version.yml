@@ -19,6 +19,9 @@ jobs:
           cache: 'gradle'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+        
+      - name: display git log
+        run: git log
 
       - name: display version
         run: gradle version
