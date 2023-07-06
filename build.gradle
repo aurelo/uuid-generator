@@ -48,7 +48,7 @@ publishing {
 
     publications {
         maven(MavenPublication) {
-           artifactId 'uuid_timestamp_generator'
+           //artifactId 'uuid_timestamp_generator'
 	   from components.java
         }
     }
