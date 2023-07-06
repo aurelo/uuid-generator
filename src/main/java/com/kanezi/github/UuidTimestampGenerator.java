@@ -1,3 +1,5 @@
+package com.kanezi.github;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
