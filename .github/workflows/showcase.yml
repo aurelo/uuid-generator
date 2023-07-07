@@ -3,10 +3,11 @@ name: GitHub actions showcase
 on: workflow_dispatch
 
 jobs:
-
   showcase:
+  
     runs-on: ubunutu-latest
     steps:
+      - run: echo "job is running on: ${{ runner.os }}"
       
       - name: Display user info
         run: echo "User: ${{github.actor}}"
@@ -14,8 +15,6 @@ jobs:
       - run: echo "branch name: ${{github.ref}}"
       
       - name: display content of workspace
-        run: ls ${{ github.workspace }}
-      
+        run: ls ${{ github.workspace }}      
 
-    
-  
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
