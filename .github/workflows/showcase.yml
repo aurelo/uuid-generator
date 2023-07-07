@@ -28,7 +28,7 @@ jobs:
       - run: echo "Job is running on ${{ runner.os }}"
       
       - name: Display user info
-#        run: echo "User: ${{github.actor}}"
+        run: echo "${{github.actor}} is testing out GitHub Actions"
         
 #      - run: echo "branch name: ${{github.ref}}"
       
