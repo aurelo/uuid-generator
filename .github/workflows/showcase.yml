@@ -1,0 +1,21 @@
+name: GitHub actions showcase
+
+on: workflow_dispatch
+
+jobs:
+
+  showcase:
+    runs-on: ubunutu-latest
+    steps:
+      
+      - name: Display user info
+        run: echo "User: ${{github.actor}}"
+        
+      - run: echo "branch name: ${{github.ref}}"
+      
+      - name: display content of workspace
+        run: ls ${{ github.workspace }}
+      
+
+    
+  
