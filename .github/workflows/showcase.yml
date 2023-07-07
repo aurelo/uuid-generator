@@ -34,5 +34,19 @@ jobs:
       
       - name: display content of workspace
         run: ls ${{ github.workspace }}      
+        
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        
+      - name: display content of workspace
+        run: |
+          ls ${{ github.workspace }}    
 
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      
+      - name: runners come with preinstalled software
+        run: |
+          git -v
+          docker -v
+          node -v
+          java -version
